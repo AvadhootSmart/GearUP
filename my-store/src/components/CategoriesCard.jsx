@@ -1,5 +1,6 @@
 import React from "react";
 import { FiMinusCircle } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const CategoriesCard = ({image, category, price}) => {
   return (
@@ -17,14 +18,14 @@ const CategoriesCard = ({image, category, price}) => {
             <div className="class">
               <h1 className="font-extrabold text-white text-3xl">{category}</h1>
               <div className="browse my-10">
-                <a href="/">
+                <Link to={`products/${category}`}>
                   <div className="flex items-center gap-2 font-[Montserrat]">
                     <FiMinusCircle className="text-[#676eff] text-4xl" />
                     <h1 className="uppercase text-white text-xl font-bold">
                       Browse
                     </h1>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

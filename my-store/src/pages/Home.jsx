@@ -39,7 +39,7 @@ const Home = () => {
             category="Keyboard"
             price="49"
           />
-          <CategoriesCard image="/Mouse.png" category="Mice" price="29" />
+          <CategoriesCard image="/Mouse.png" category="Mouse" price="29" />
           <CategoriesCard image="/Headset.png" category="Headset" price="22" />
           <CategoriesCard image="/Headset.png" category="Headset" price="22" />
         </div>
