@@ -47,6 +47,11 @@ app.use(passport.session());
 //Serving Static files:
 app.use(express.static(__dirname + "/Images"));
 
+
+
+app.get('/', (req,res)=>{
+  res.send('Backend Successfully working!!')
+})
 //Local Authentication:
 
 app.post("/register", async (req, res) => {
@@ -157,21 +162,21 @@ app.post("/create-checkout-session", async (req, res) => {
 });
 
 //Google Auth
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile"] })
-);
+// app.get(
+//   "/auth/google",
+//   passport.authenticate("google", { scope: ["profile"] })
+// );
 
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "http://localhost:5173/Login",
-  }),
-  (req, res) => {
-    // Successful authentication, redirect to the home page
-    res.redirect("http://localhost:5173/");
-  }
-);
+// app.get(
+//   "/auth/google/callback",
+//   passport.authenticate("google", {
+//     failureRedirect: "http://localhost:5173/Login",
+//   }),
+//   (req, res) => {
+//     // Successful authentication, redirect to the home page
+//     res.redirect("http://localhost:5173/");
+//   }
+// );
 
 app.listen(5000, () => {
   console.log("Server listening on http://localhost:5000");
