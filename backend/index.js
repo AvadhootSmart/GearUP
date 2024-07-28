@@ -6,6 +6,7 @@ const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 const stripe = require("stripe")(
   "sk_test_51Ol97KSGBJG4p2ppnEqGuemWKtHRSQHLevXdI59ZA65c9oQecheesv1VboiiIEV6lwiIo57M3ZpGz5o6HdjS5rGZ00iwjEj6Ji"
 );
