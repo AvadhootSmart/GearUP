@@ -8,7 +8,7 @@ import {
   CategoryPage,
   CartPage,
   FailedPage,
-  SuccessPage
+  SuccessPage,
 } from "./pages";
 import { Navbar, Footer } from "./components";
 import { useSelector } from "react-redux";
@@ -46,7 +46,6 @@ const AuthRoutes = () => (
     <Route path="/Register" element={<RegisterPage />} />
   </>
 );
-
 
 /*
   Implement the toast feature using the react toast library, also carry forward the functionality from the hero cards to the featured card to be added to the cart
