@@ -15,9 +15,6 @@ const { initializePassport } = require("./LocalAuth");
 const bodyParser = require("body-parser");
 const app = express();
 
-// const YOUR_DOMAIN = "https://av-gaming-gear.vercel.app/";
-
-app.use(express.json());
 app.use(
   cors({
     origin: process.env.FRONTEND_DOMAIN,
@@ -26,6 +23,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(express.json());
 
 initializePassport(passport);
 // initializeGoogleAuth(passport);
