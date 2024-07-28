@@ -7,7 +7,7 @@ const loginUser = createAsyncThunk(
   async (userData, { dispatch, rejectWithValue }) => {
     const { username, password } = userData;
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/login`, {
         username,
         password,
       });

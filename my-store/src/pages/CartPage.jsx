@@ -12,6 +12,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { IoRemoveCircleOutline } from "react-icons/io5";
 
+const BACKEND_DOMAIN = "https://av-gaming-gear-be.vercel.app";
 function CartPage() {
   const dispatch = useDispatch();
   const Cart = useSelector((state) => state.auth.cart);
@@ -26,16 +27,14 @@ function CartPage() {
   };
 
   const redirectPayment = async () => {
-    const stripe = await loadStripe(
-      "pk_test_51Ol97KSGBJG4p2ppuqYC5J90tByTzHDyM61D7qxODXmYw2Fnc6kuuhVhdbO4062UqmQGb0xTIaM3EDh0z2ks9UoG000VH59fZp",
-    );
+    const stripe = await loadStripe(import.meta.env.VITE_STRIPE_TEST_KEY);
 
     const body = {
       products: items,
     };
 
     const response = await fetch(
-      "http://localhost:5000/create-checkout-session",
+      `${import.meta.env.VITE_BACKEND_DOMAIN}/create-checkout-session`,
       {
         method: "POST",
         headers: {
@@ -52,7 +51,7 @@ function CartPage() {
     });
 
     if (result.error) {
-      console.log(result.error);  
+      console.log(result.error);
     }
   };
 

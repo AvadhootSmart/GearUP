@@ -4,7 +4,6 @@ import CatProductCard from "../components/CatProductCard";
 
 const CategoryPage = () => {
   const { category } = useParams();
-  // Sample product data
 
   return (
     <>

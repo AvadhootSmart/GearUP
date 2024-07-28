@@ -8,6 +8,7 @@ import { loginSuccess } from "../features/auth/authSlice";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
+const BACKEND_DOMAIN = "https://av-gaming-gear-be.vercel.app";
 function RegisterPage() {
   useGSAP(() => {
     gsap.from(".FormCard", {
@@ -35,7 +36,7 @@ function RegisterPage() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/register", {
+      const response = await axios.post(`${BACKEND_DOMAIN}/register`, {
         username,
         name,
         email,
@@ -109,7 +110,10 @@ function RegisterPage() {
               </button>
               <div className="mt-8 flex gap-2 text-xl text-[#72748e]">
                 <h3>Have an account already??</h3>
-                <Link to="/Login" className="text-[#676eff] hover:text-[#313690]">
+                <Link
+                  to="/Login"
+                  className="text-[#676eff] hover:text-[#313690]"
+                >
                   Log In
                 </Link>
               </div>

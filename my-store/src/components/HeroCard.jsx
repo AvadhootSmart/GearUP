@@ -63,7 +63,7 @@ const HeroCard = ({
   }
   async function addToCart(productid, Uid) {
     if (user) {
-      const response = await axios.post(`http://localhost:5000/add-to-cart`, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/add-to-cart`, {
         productId: productid,
         userId: Uid,
       });

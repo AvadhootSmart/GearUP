@@ -6,18 +6,20 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const BACKEND_DOMAIN = "https://av-gaming-gear-be.vercel.app";
+
 const Home = () => {
   const [cardData, setcardData] = useState([{}]);
   const [featuredCards, setfeaturedCards] = useState([{}]);
 
   useEffect(() => {
     async function fetchHero() {
-      const response = await axios.get("http://localhost:5000/HeroProducts");
+      const response = await axios.get(`${BACKEND_DOMAIN}/HeroProducts`);
       setcardData(response.data);
     }
 
     async function fetchFeatured() {
-      const response = await axios.get("http://localhost:5000/Products");
+      const response = await axios.get(`${BACKEND_DOMAIN}/Products`);
       setfeaturedCards(response.data);
     }
     fetchHero();
