@@ -15,10 +15,17 @@ const { initializeGoogleAuth } = require("./Oauth");
 const bodyParser = require("body-parser");
 const app = express();
 
-const YOUR_DOMAIN = "http://localhost:5173";
+const YOUR_DOMAIN = "https://av-gaming-gear.vercel.app/";
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: YOUR_DOMAIN,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 
 initializePassport(passport);
 initializeGoogleAuth(passport);
