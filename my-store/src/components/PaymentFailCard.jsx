@@ -7,7 +7,7 @@ const PaymentFailCard = () => {
       <div className="max-w-lg rounded-lg bg-[#72748e] p-6 shadow-lg">
         <div className="text-center font-[Poppins]">
           <img
-            src={`/public/failure.svg`}
+            src={`/failure.svg`}
             alt="Payment Successful"
             className="mx-auto h-16 w-16"
           />
