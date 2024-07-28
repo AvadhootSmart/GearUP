@@ -5,13 +5,13 @@ const ProductsModel = require("./models/Products");
 const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const mongoose = require("mongoose");
 const { initializePassport } = require("./LocalAuth");
-require("./Oauth");
-const { initializeGoogleAuth } = require("./Oauth");
+// require("./Oauth");
+// const { initializeGoogleAuth } = require("./Oauth");
 const bodyParser = require("body-parser");
 const app = express();
 
@@ -28,7 +28,7 @@ app.use(
 );
 
 initializePassport(passport);
-initializeGoogleAuth(passport);
+// initializeGoogleAuth(passport);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,11 +47,9 @@ app.use(passport.session());
 //Serving Static files:
 app.use(express.static(__dirname + "/Images"));
 
-
-
-app.get('/', (req,res)=>{
-  res.send('Backend Successfully working!!')
-})
+app.get("/", (req, res) => {
+  res.send("Backend Successfully working!!");
+});
 //Local Authentication:
 
 app.post("/register", async (req, res) => {
