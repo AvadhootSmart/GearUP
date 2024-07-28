@@ -7,7 +7,7 @@ const CatProductCard = ({category}) => {
   return (
     <>
       <div className="prodcard  flex flex-col items-center ">
-        <Link to={`/product/${_id}`}>
+        <Link to={`/`}>
           <img
             src={`/${category}.png`}
             className="h-[35vh] w-[35vw] object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.98)]"

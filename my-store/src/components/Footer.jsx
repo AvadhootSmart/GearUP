@@ -37,10 +37,12 @@ const Footer = () => {
         </div>
         <div className="about">
           <p className="text-l max-w-[30vw] text-[#72748e]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa
-            reiciendis numquam iusto illum sit dolorum odit maiores rem
-            excepturi obcaecati distinctio, vel, vitae similique inventore, modi
-            perspiciatis fugiat? Iste?
+            Test Card Details - 4000 0035 6000 0008
+            <br />
+            Any Valid Date, and random CVV number
+            <p>
+              Test Login Details: <br /> Username: Alex <br /> Password: Alex22
+            </p>
           </p>
         </div>
       </div>

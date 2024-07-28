@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { FaShoppingCart } from "react-icons/fa";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Button } from "flowbite-react";
 
 const Navbar = () => {
   useGSAP(() => {
@@ -12,17 +13,16 @@ const Navbar = () => {
       opacity: 0,
       duration: 0.5,
       stagger: 0.2,
-      ease:'power1'
+      ease: "power1",
     });
-     gsap.from('.rightLinks',{
-      y:-50,
-      opacity:0,
-      duration:0.5,
-      delay:1,
-      stagger:0.2,
-      ease:'power1'
-    })
-
+    gsap.from(".rightLinks", {
+      y: -50,
+      opacity: 0,
+      duration: 0.5,
+      delay: 1,
+      stagger: 0.2,
+      ease: "power1",
+    });
   });
   const location = useLocation();
   const user = useSelector((state) => state.auth.user);
@@ -62,12 +62,13 @@ const Navbar = () => {
           {user ? (
             <h1>{user.user.username}</h1>
           ) : (
-            <Link className="rightLinks border-2 border-white rounded-3xl p-2" to="/Login">
-              Login
+            <Link to="/Login" className="rightLinks">
+              <Button color={'purple'}>Login</Button>
             </Link>
+            //className="rightLinks border-3 border-white rounded-3xl p-2"
           )}
         </div>
-        <div className="cart mt-16 flex flex-col gap-10 flex-grow">
+        <div className="cart mt-16 flex flex-grow flex-col gap-10">
           <Link className="rightLinks" to="/Cart">
             <div className="text-3xl text-[#676eff]">
               <FaShoppingCart />
@@ -76,9 +77,13 @@ const Navbar = () => {
 
           <div>
             {user ? (
-              <p className="rightLinks rotate-90 text-lg uppercase font-[Poppins]">${cart.totalPrice}</p>
+              <p className="rightLinks rotate-90 font-[Poppins] text-lg uppercase">
+                ${cart.totalPrice}
+              </p>
             ) : (
-              <p className="rightLinks rotate-90 font-[Poppins] text-lg uppercase">$0</p>
+              <p className="rightLinks rotate-90 font-[Poppins] text-lg uppercase">
+                $0
+              </p>
             )}
           </div>
         </div>

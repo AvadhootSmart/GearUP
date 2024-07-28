@@ -49,7 +49,7 @@ const Home = () => {
           <h1 className="-mb-14">Featured</h1>
         </div>
         <Featured featuredCards={featuredCards} />
-        <ToastContainer/>
+        <ToastContainer />
       </div>
     </>
   );

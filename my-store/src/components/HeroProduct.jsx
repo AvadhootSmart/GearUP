@@ -14,6 +14,7 @@ const HeroProduct = ({ cards }) => {
   };
   return (
     <>
+      {console.log(cards)}
       <Carousel
         showStatus={false}
         renderArrowPrev={(onClickHandler, hasPrev, label) =>
@@ -24,7 +25,7 @@ const HeroProduct = ({ cards }) => {
               title={label}
               style={{ ...arrowStyles, right: 0, top: "40%" }}
             >
-              <GrPrevious className="text-[#72748e] text-5xl mx-5 hover:scale-125 transition-all" />
+              <GrPrevious className="mx-5 text-5xl text-[#72748e] transition-all hover:scale-125" />
             </button>
           )
         }
@@ -36,13 +37,13 @@ const HeroProduct = ({ cards }) => {
               title={label}
               style={{ ...arrowStyles, right: 0 }}
             >
-              <GrNext className="text-[#72748e] text-5xl mx-5 hover:scale-125 transition-all" />
+              <GrNext className="mx-5 text-5xl text-[#72748e] transition-all hover:scale-125" />
             </button>
           )
         }
       >
         {cards.map((card, index) => (
-          <HeroCard key={index}{...card}/>
+          <HeroCard key={index} {...card} />
         ))}
       </Carousel>
     </>
