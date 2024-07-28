@@ -15,12 +15,12 @@ const { initializePassport } = require("./LocalAuth");
 const bodyParser = require("body-parser");
 const app = express();
 
-const YOUR_DOMAIN = "https://av-gaming-gear.vercel.app/";
+// const YOUR_DOMAIN = "https://av-gaming-gear.vercel.app/";
 
 app.use(express.json());
 app.use(
   cors({
-    origin: YOUR_DOMAIN,
+    origin: process.env.FRONTEND_DOMAIN,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -152,8 +152,8 @@ app.post("/create-checkout-session", async (req, res) => {
     payment_method_types: ["card"],
     line_items: LineItems,
     mode: "payment",
-    success_url: `${YOUR_DOMAIN}/Success`,
-    cancel_url: `${YOUR_DOMAIN}/Failed`,
+    success_url: `${process.env.FRONTEND_DOMAIN}/Success`,
+    cancel_url: `${process.env.FRONTEND_DOMAIN}/Failed`,
   });
 
   res.json({ id: session.id });
