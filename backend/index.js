@@ -15,6 +15,7 @@ const { initializePassport } = require("./LocalAuth");
 const bodyParser = require("body-parser");
 const app = express();
 
+
 app.use(
   cors({
     origin: process.env.FRONTEND_DOMAIN,
@@ -150,8 +151,8 @@ app.post("/create-checkout-session", async (req, res) => {
     payment_method_types: ["card"],
     line_items: LineItems,
     mode: "payment",
-    success_url: `${process.env.FRONTEND_DOMAIN}/Success`,
-    cancel_url: `${process.env.FRONTEND_DOMAIN}/Failed`,
+    success_url: `${process.env.FRONTEND_DOMAIN}/paymentSuccess`,
+    cancel_url: `${process.env.FRONTEND_DOMAIN}/paymentFailed`,
   });
 
   res.json({ id: session.id });

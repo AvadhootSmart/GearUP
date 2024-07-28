@@ -63,10 +63,13 @@ const HeroCard = ({
   }
   async function addToCart(productid, Uid) {
     if (user) {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/add-to-cart`, {
-        productId: productid,
-        userId: Uid,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_DOMAIN}/add-to-cart`,
+        {
+          productId: productid,
+          userId: Uid,
+        },
+      );
       const productDets = response.data;
       dispatch(AddToCart(productDets.data.items));
       toast.success("Item Added to cart");

@@ -4,4 +4,5 @@ export { default as RegisterPage } from "./RegisterPage";
 export { default as Home } from "./Home";
 export { default as CategoryPage } from "./CategoryPage";
 export { default as CartPage } from "./CartPage";
-export {default as FailurePage} from './failure'
+export {default as FailedPage} from './FailedPage'
+export {default as SuccessPage} from './SuccessPage'

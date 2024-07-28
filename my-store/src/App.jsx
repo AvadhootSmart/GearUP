@@ -7,13 +7,14 @@ import {
   RegisterPage,
   CategoryPage,
   CartPage,
-  FailurePage,
+  FailedPage,
+  SuccessPage
 } from "./pages";
 import { Navbar, Footer } from "./components";
 import { useSelector } from "react-redux";
 import ScrollToTop from "./components/ScrollToTop";
-import SuccessPage from "./pages/SuccessPage";
-import FailedPage from "./pages/FailedPage";
+// import SuccessPage from "./pages/SuccessPage";
+// import FailedPage from "./pages/FailedPage";
 
 export default function App() {
   const user = useSelector((state) => state.auth.user);
@@ -29,9 +30,9 @@ export default function App() {
           <Route path="/products/:category" element={<CategoryPage />} />
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/Register" element={<RegisterPage />} />
-          <Route path="/Success" element={<SuccessPage />} />
-          <Route path="/Failed" element={<FailedPage />} />
-          <Route path="/Cart" element={user ? <CartPage /> : <FailurePage />} />
+          <Route path="/paymentSuccess" element={<SuccessPage />} />
+          <Route path="/paymentFailed" element={<FailedPage />} />
+          <Route path="/Cart" element={user ? <CartPage /> : <Home />} />
         </Routes>
         <Footer />
       </Router>
