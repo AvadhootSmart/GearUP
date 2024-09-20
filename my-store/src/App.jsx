@@ -1,50 +1,48 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
-  Home,
-  ProductPage,
-  LoginPage,
-  RegisterPage,
-  CategoryPage,
-  CartPage,
-  FailedPage,
-  SuccessPage,
+    Home,
+    ProductPage,
+    LoginPage,
+    RegisterPage,
+    CategoryPage,
+    CartPage,
+    FailedPage,
+    SuccessPage,
 } from "./pages";
 import { Navbar, Footer } from "./components";
 import { useSelector } from "react-redux";
 import ScrollToTop from "./components/ScrollToTop";
-// import SuccessPage from "./pages/SuccessPage";
-// import FailedPage from "./pages/FailedPage";
 
 export default function App() {
-  const user = useSelector((state) => state.auth.user);
+    const user = useSelector((state) => state.auth.user);
 
-  return (
-    <>
-      <Router>
-        <ScrollToTop />
-        <Navbar user={user} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/products/:category" element={<CategoryPage />} />
-          <Route path="/Login" element={<LoginPage />} />
-          <Route path="/Register" element={<RegisterPage />} />
-          <Route path="/paymentSuccess" element={<SuccessPage />} />
-          <Route path="/paymentFailed" element={<FailedPage />} />
-          <Route path="/Cart" element={user ? <CartPage /> : <Home />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </>
-  );
+    return (
+        <>
+            <Router>
+                <ScrollToTop />
+                <Navbar user={user} />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/product/:id" element={<ProductPage />} />
+                    <Route path="/products/:category" element={<CategoryPage />} />
+                    <Route path="/Login" element={<LoginPage />} />
+                    <Route path="/Register" element={<RegisterPage />} />
+                    <Route path="/paymentSuccess" element={<SuccessPage />} />
+                    <Route path="/paymentFailed" element={<FailedPage />} />
+                    <Route path="/Cart" element={user ? <CartPage /> : <Home />} />
+                </Routes>
+                <Footer />
+            </Router>
+        </>
+    );
 }
 
 const AuthRoutes = () => (
-  <>
-    <Route path="/Login" element={<LoginPage />} />
-    <Route path="/Register" element={<RegisterPage />} />
-  </>
+    <>
+        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/Register" element={<RegisterPage />} />
+    </>
 );
 
 /*
