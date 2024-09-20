@@ -43,7 +43,7 @@ const Home = () => {
         if (fetchingComplete) {
             const loaderTimeout = setTimeout(() => {
                 setShowLoader(false);
-            }, 1000);
+            }, 2000);
             return () => clearTimeout(loaderTimeout);
         }
     }, [fetchingComplete]);
