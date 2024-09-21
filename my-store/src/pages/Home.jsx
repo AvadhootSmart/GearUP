@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PageLoader from "./PageLoader";
 
-const BACKEND_DOMAIN = "http://localhost:5000";
+const BACKEND_DOMAIN = "https://av-gaming-gear-be.vercel.app";
 
 const Home = () => {
   const [cardData, setCardData] = useState([{}]);
