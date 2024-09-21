@@ -22,7 +22,7 @@ const PageLoader = () => {
         });
     });
     return (
-        <div className="wrapper z-1 absolute left-0 top-0 flex h-screen w-full items-center justify-center bg-zinc-900 text-[10rem] font-bold text-white">
+        <div className="wrapper z-50 absolute left-0 top-0 flex h-screen w-full items-center justify-center bg-zinc-900 text-[10rem] font-bold text-white">
             <div className="flex h-[8.1rem] w-full items-center justify-center overflow-hidden  text-center">
                 <div className="even -space-y-8 leading-none">
                     <h1>G</h1>

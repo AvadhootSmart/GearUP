@@ -7,26 +7,23 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PageLoader from "./PageLoader";
 
-const BACKEND_DOMAIN = "https://av-gaming-gear-be.vercel.app";
+const BACKEND_DOMAIN = "http://localhost:5000";
 
 const Home = () => {
     const [cardData, setCardData] = useState([{}]);
     const [featuredCards, setFeaturedCards] = useState([{}]);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const [heroResponse, featuredResponse] = await Promise.all([
                     axios.get(`${BACKEND_DOMAIN}/HeroProducts`),
-                    axios.get(`${BACKEND_DOMAIN}/Products`)
+                    axios.get(`${BACKEND_DOMAIN}/Products`),
                 ]);
                 setCardData(heroResponse.data);
                 setFeaturedCards(featuredResponse.data);
             } catch (error) {
                 console.log("Error occurred while fetching data:", error);
-            } finally {
-                setIsLoading(false);
             }
         }
         fetchData();
@@ -34,8 +31,9 @@ const Home = () => {
 
     return (
         <>
-            {isLoading && <PageLoader />}
-            <div className={`${isLoading ? 'hidden' : ''}`}>
+            <div>
+                <PageLoader />
+                <div >
                 <div className="h-screen w-full bg-[#23232f]">
                     <HeroProduct cards={cardData} />
                 </div>
@@ -50,8 +48,16 @@ const Home = () => {
                             price="49"
                         />
                         <CategoriesCard image="/Mouse.png" category="Mouse" price="29" />
-                        <CategoriesCard image="/Headset.png" category="Headset" price="22" />
-                        <CategoriesCard image="/Headset.png" category="Headset" price="22" />
+                        <CategoriesCard
+                            image="/Headset.png"
+                            category="Headset"
+                            price="22"
+                        />
+                        <CategoriesCard
+                            image="/Headset.png"
+                            category="Headset"
+                            price="22"
+                        />
                     </div>
                 </div>
                 <div className="Page3 min-h-screen w-full overflow-hidden bg-[#23232f] py-10">
@@ -62,6 +68,7 @@ const Home = () => {
                     <ToastContainer />
                 </div>
             </div>
+        </div >
         </>
     );
 };
