@@ -12,12 +12,10 @@ const BACKEND_DOMAIN = "https://av-gaming-gear-be.vercel.app";
 const Home = () => {
   const [cardData, setCardData] = useState([{}]);
   const [featuredCards, setFeaturedCards] = useState([{}]);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        setLoading(true);
         const [heroResponse, featuredResponse] = await Promise.all([
           axios.get(`${BACKEND_DOMAIN}/HeroProducts`),
           axios.get(`${BACKEND_DOMAIN}/Products`),
@@ -26,8 +24,6 @@ const Home = () => {
         setFeaturedCards(featuredResponse.data);
       } catch (error) {
         console.log("Error occurred while fetching data:", error);
-      } finally {
-        setLoading(false);
       }
     }
     fetchData();
@@ -36,7 +32,7 @@ const Home = () => {
   return (
     <>
       <div>
-        {loading && <PageLoader />}
+        <PageLoader />
         <div>
           <div className="h-screen w-full bg-[#23232f]">
             <HeroProduct cards={cardData} />
