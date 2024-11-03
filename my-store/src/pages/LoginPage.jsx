@@ -47,7 +47,7 @@ export default function LoginPage() {
           </h1>
         </div>
         <div className="relative z-10 flex h-screen w-full items-center justify-center">
-          <div className="FormCard items-cente flex h-[70vh]  w-[35vw]  rounded-2xl border-2 backdrop-blur-lg ">
+          <div className="FormCard items-center flex h-[70vh] w-[35vw] rounded-2xl border-2 backdrop-blur-lg ">
             <form
               onSubmit={handleLogin}
               className="flex h-full w-full flex-col items-center"
