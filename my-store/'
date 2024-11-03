@@ -47,59 +47,44 @@ export default function LoginPage() {
           </h1>
         </div>
         <div className="relative z-10 flex h-screen w-full items-center justify-center">
-          <div className="FormCard flex  w-[35vw] items-center  rounded-2xl border-2 p-10 backdrop-blur-lg">
+          <div className="FormCard flex h-[50vh] w-[35vw] items-center  rounded-2xl border-2 p-10 backdrop-blur-lg">
             <form
               onSubmit={handleLogin}
-              className="flex h-full w-full flex-col items-center justify-center gap-4"
+              className="flex h-full w-full flex-col items-center justify-center gap-10"
             >
-              <h1 className=" font-[Poppins] text-4xl font-extrabold text-white">
+              <h1 className="pt-14 font-[Poppins] text-4xl font-extrabold text-white">
                 Login
               </h1>
               <div className="flex w-full flex-col gap-2">
-                <label
-                  htmlFor="username"
-                  className="font-[Poppins] text-xl text-white"
-                >
-                  Username
-                </label>
+                <h1 className="text-white">Username</h1>
                 <input
                   type="text"
                   name="Username"
                   value={username}
                   onChange={(e) => setusername(e.target.value)}
-                  className="block w-full rounded-lg border bg-gray-500 p-2.5 text-sm text-white  placeholder:text-gray-300 focus:border-[#676eff]"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   placeholder="Enter your username"
                 />
               </div>
-              <div className="flex w-full flex-col gap-2">
-                <label
-                  htmlFor="password"
-                  className="font-[Poppins] text-xl text-white"
+              <input
+                type="password"
+                name="Password"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
+                placeholder="Enter your password"
+                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              />
+              <button className="mt-10 w-[60%] rounded-2xl bg-[#676eff] font-[Poppins] text-2xl font-bold">
+                Login
+              </button>
+              <div className="mt-8 flex gap-2 text-xl text-[#72748e]">
+                <h3>New Here??</h3>
+                <Link
+                  to="/Register"
+                  className="text-[#676eff] hover:text-[#313690]"
                 >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="Password"
-                  value={password}
-                  onChange={(e) => setpassword(e.target.value)}
-                  placeholder="Enter your password"
-                  className="block w-full rounded-lg border bg-gray-500 p-2.5 text-sm text-white  placeholder:text-gray-300 focus:border-[#676eff]"
-                />
-              </div>
-              <div className="flex w-full items-center justify-between">
-                <div className="flex gap-2 text-xl text-[#72748e]">
-                  <h3>New Here??</h3>
-                  <Link
-                    to="/Register"
-                    className="text-[#676eff] hover:text-[#313690]"
-                  >
-                    Create Account
-                  </Link>
-                </div>
-                <button className="rounded-lg px-3 py-1 bg-[#676eff] font-[Poppins] text-2xl font-bold">
-                  Login
-                </button>
+                  Create Account
+                </Link>
               </div>
             </form>
           </div>
