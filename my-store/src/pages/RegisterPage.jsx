@@ -8,7 +8,6 @@ import { loginSuccess } from "../features/auth/authSlice";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const BACKEND_DOMAIN = "https://av-gaming-gear-be.vercel.app";
 function RegisterPage() {
   useGSAP(() => {
     gsap.from(".FormCard", {
@@ -36,7 +35,7 @@ function RegisterPage() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${BACKEND_DOMAIN}/register`, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/register`, {
         username,
         name,
         email,

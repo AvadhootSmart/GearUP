@@ -5,13 +5,12 @@ import ProductCard from "../components/ProductCard";
 import ProductDetails from "../components/ProductDetails";
 import { ToastContainer } from "react-toastify";
 
-const BACKEND_DOMAIN = "https://av-gaming-gear-be.vercel.app";
 function ProductPage() {
   const [product, setproduct] = useState([{}]);
   const { id } = useParams();
   useEffect(() => {
     async function fetchProduct() {
-      const response = await axios.get(`${BACKEND_DOMAIN}/product/${id}`);
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_DOMAIN}/product/${id}`);
       setproduct(response.data);
     }
     fetchProduct();

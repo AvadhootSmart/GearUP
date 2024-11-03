@@ -7,7 +7,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PageLoader from "./PageLoader";
 
-const BACKEND_DOMAIN = "https://av-gaming-gear-be.vercel.app";
 
 const Home = () => {
   const [cardData, setCardData] = useState([{}]);
@@ -17,8 +16,8 @@ const Home = () => {
     async function fetchData() {
       try {
         const [heroResponse, featuredResponse] = await Promise.all([
-          axios.get(`${BACKEND_DOMAIN}/HeroProducts`),
-          axios.get(`${BACKEND_DOMAIN}/Products`),
+          axios.get(`${import.meta.env.VITE_BACKEND_DOMAIN}/HeroProducts`),
+          axios.get(`${import.meta.env.VITE_BACKEND_DOMAIN}/Products`),
         ]);
         setCardData(heroResponse.data);
         setFeaturedCards(featuredResponse.data);

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
 import {
   AddToCart,
   RemoveFromCart,
@@ -12,7 +11,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { IoRemoveCircleOutline } from "react-icons/io5";
 
-const BACKEND_DOMAIN = "https://av-gaming-gear-be.vercel.app";
 function CartPage() {
   const dispatch = useDispatch();
   const Cart = useSelector((state) => state.auth.cart);
